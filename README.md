@@ -1,4 +1,4 @@
-# plos_comput_biol_data
+# Data for publication in PLOS computational biology (Paper title : Neighbor-enhanced cell motility in dense cell populations)
 Experimental and simulated cells' trajectories for publication in PLOS Computational Biology
 
 Trajectories of MDA-MB-231 cells within confleuent population (n = 258), freely crawling cells (n = 187), rotating forming doublets (n = 57), in cell-quadruplets (n = 40). 
