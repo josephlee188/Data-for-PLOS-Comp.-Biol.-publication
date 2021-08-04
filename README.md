@@ -3,7 +3,8 @@
 ## Paper title : Neighbor-enhanced diffusivity in dense, cohesive cell populations
 
 ### Authors : Hyun Gyu Lee, Kyoung J. Lee*
-Department of physics, Korea Univeristy, Seoul, South Korea
+
+#### Department of physics, Korea Univeristy, Seoul, South Korea
 
 
 
