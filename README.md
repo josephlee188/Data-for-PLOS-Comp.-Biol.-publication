@@ -2,6 +2,12 @@
 
 ## Paper title : Neighbor-enhanced diffusivity in dense, cohesive cell populations
 
-Trajectories of MDA-MB-231 cells within confleuent population (n = 258), freely crawling cells (n = 187), rotating doublets (n = 57), and cell-quadruplets (n = 40). 
+### Authors : Hyun Gyu Lee, Kyoung J. Lee*
+Department of physics, Korea Univeristy, Korea
 
-Trajectories of cells simulated with CPM at fixed parameters (details were provided in the manuscript) were also provided; those within confluent population, freely crawling cells, cell-doublets, and cell-quadruplets. All cells were simulated 200 different times with varying random seed.
+
+MATLAB .mat files for the trajectories of MDA-MB-231 cells, and simulated cells. The .m files contain analysis codes for the paper. 
+
+The simulations in this paper were done via open-source platform for multi-cellular simulation "Morpheus" (https://morpheus.gitlab.io/).
+
+The xml file contains all the parameters for the simulations performed via Morpheus. 
