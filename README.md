@@ -3,7 +3,8 @@
 ## Paper title : Neighbor-enhanced diffusivity in dense, cohesive cell populations
 
 ### Authors : Hyun Gyu Lee, Kyoung J. Lee*
-Department of physics, Korea Univeristy, Korea
+Department of physics, Korea Univeristy, Seoul, South Korea
+
 
 
 MATLAB .mat files for the trajectories of MDA-MB-231 cells, and simulated cells. The .m files contain analysis codes for the paper. 
