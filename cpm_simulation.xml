@@ -1,0 +1,117 @@
+<MorpheusModel version="4">
+    <Description>
+        <Title>cancer_simulation</Title>
+        <Details>Cellular Potts model simulation for the paper submission of "Neighbor-enhanced diffusivity in dense, cohesive cell populations" to PLOS Computational Biology.</Details>
+    </Description>
+    <Global/>
+    <Space>
+        <Lattice class="square">
+            <Size value="100, 100, 0" symbol="size"/>
+            <Neighborhood>
+                <Distance>3</Distance>
+            </Neighborhood>
+            <BoundaryConditions>
+                <Condition type="periodic" boundary="x"/>
+                <Condition type="periodic" boundary="y"/>
+            </BoundaryConditions>
+        </Lattice>
+        <SpaceSymbol symbol="space"/>
+    </Space>
+    <Time>
+        <TimeSymbol symbol="time"/>
+        <StartTime value="0"/>
+        <StopTime value="1000"/>
+        <RandomSeed value="1"/>
+    </Time>
+    <CellTypes>
+        <CellType class="biological" name="cancer_cell">
+            <Property value="2.8" symbol="s"/>
+            <Property value="4" symbol="dt"/>
+            <VolumeConstraint target="100" strength="1"/>
+            <SurfaceConstraint target="0.9" strength="1" mode="aspherity"/>
+            <PersistentMotion decay-time="dt" strength="s"/>
+        </CellType>
+        <CellType class="medium" name="medium"/>
+    </CellTypes>
+    <CPM>
+        <Interaction>
+            <Contact value="0" type2="medium" type1="cancer_cell"/>
+            <Contact value="-65" type2="cancer_cell" type1="cancer_cell"/>
+            <Contact value="0" type2="medium" type1="medium"/>
+        </Interaction>
+        <MonteCarloSampler stepper="edgelist">
+            <MCSDuration value="1"/>
+            <Neighborhood>
+                <Order>2</Order>
+            </Neighborhood>
+            <MetropolisKinetics temperature="10"/>
+        </MonteCarloSampler>
+        <ShapeSurface scaling="norm">
+            <Neighborhood>
+                <Distance>3</Distance>
+            </Neighborhood>
+        </ShapeSurface>
+    </CPM>
+    <CellPopulations>
+        <Population size="0" type="cancer_cell">
+            <InitCircle mode="regular" random_displacement="0.0" number-of-cells="2">
+                <Dimensions center="50, 50, 0" radius="10"/>
+            </InitCircle>
+            <!--    <Disabled>
+        <InitRectangle mode="regular" number-of-cells="990">
+            <Dimensions origin="0.0, 0.0, 0.0" size="300, 300, 0.0"/>
+        </InitRectangle>
+    </Disabled>
+-->
+        </Population>
+    </CellPopulations>
+    <Analysis>
+        <Gnuplotter time-step="5">
+            <Terminal size="300 300 0" name="png"/>
+            <Plot>
+                <Cells value="cell.id"/>
+                <Disabled>
+                    <CellArrows orientation="0.0, 0.0, 0.0"/>
+                </Disabled>
+            </Plot>
+        </Gnuplotter>
+        <!--    <Disabled>
+        <Logger time-step="1">
+            <Input>
+                <Symbol symbol-ref="cell.volume"/>
+                <Symbol symbol-ref="cell.surface"/>
+                <Symbol symbol-ref="cell.center.x"/>
+                <Symbol symbol-ref="cell.center.y"/>
+                <Disabled>
+                    <Symbol symbol-ref="cell.center.phi"/>
+                </Disabled>
+            </Input>
+            <Output>
+                <TextOutput file-format="matrix" file-separation="cell" file-numbering="time"/>
+            </Output>
+            <Disabled>
+                <Plots>
+                    <Plot time-step="100">
+                        <Style style="lines" line-width="2.0"/>
+                        <Terminal terminal="png"/>
+                        <X-axis minimum="0.0" maximum="size.x">
+                            <Symbol symbol-ref="cell.center.x"/>
+                        </X-axis>
+                        <Y-axis minimum="0.0" maximum="size.y">
+                            <Symbol symbol-ref="cell.center.y"/>
+                        </Y-axis>
+                        <Color-bar>
+                            <Symbol symbol-ref="time"/>
+                        </Color-bar>
+                        <Range>
+                            <Time history="100" mode="history"/>
+                        </Range>
+                    </Plot>
+                </Plots>
+            </Disabled>
+        </Logger>
+    </Disabled>
+-->
+        <ModelGraph format="dot" reduced="false" include-tags="#untagged"/>
+    </Analysis>
+</MorpheusModel>
