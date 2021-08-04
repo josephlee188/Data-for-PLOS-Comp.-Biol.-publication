@@ -4,7 +4,7 @@
 
 ### Authors : Hyun Gyu Lee, Kyoung J. Lee
 
-#### Department of physics, Korea University, Seoul, South Korea
+#### Department of Physics, Korea University, Seoul, South Korea
 
 <br>
 <br>
